@@ -1,6 +1,7 @@
 package somepackage;
 
 public class Color {
+	//Comment
 	private final String colorName;
 	private final String colorValue;
 
