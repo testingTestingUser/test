@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<!--  When you make your own projects, copy and rename sample-file-with-form.xhtml
+      or sample-file-no-form.xhtml. Don't copy and rename THIS file, because
+      this file has too many extraneous things in it. -->
+<h:head>
+<title>JSF 2.2: Blank Starting-Point Project</title>
+<link href="./css/styles.css" rel="stylesheet" type="text/css"/> 
+</h:head>
+	<h:body>
+		<h1 class="title" style="background-color: transparent; border-color: transparent;">JSF Training Tasks</h1>
+		<div align="center" style="margin-top: 10px;">
+			<fieldset>
+			<legend>JSF Test Form</legend>
+				<h:form>
+				<h:messages globalOnly="true" />
+				  Name: <h:inputText value="#{retrieveFormInputs.name}"/><br/>  <!-- Corresponds to getName and setName -->
+				  Bank id:  <h:inputText value="#{retrieveFormInputs.bankId}"/><br/>
+					  <!-- Calls "someActionControllerMethod" and uses return value as base name of page to navigate to. -->
+					  <h:commandButton value="Submit" 
+					                   action="#{retrieveFormInputs.submitForm}"/>     
+				</h:form>
+			</fieldset>
+			
+			<hr style="margin-top: 100px"></hr>
+			<fieldset>
+			<legend>Menus example</legend>
+				<h:form>
+					<table class="selections" border="1">
+					
+					<tr>
+					  <th>h:selectOneMenu<br/>(Uses Array of Strings)</th>
+					  <th>h:selectOneListbox<br/>(Uses List of Strings)</th>
+					  <th>h:selectOneRadio<br/>(Uses Map)</th>
+					  <th>h:selectOneListbox<br/>(Uses List of POJOs)</th>
+					</tr>
+					
+					<tr>
+					  <td>Choose Color 1:<br/>
+					      <h:selectOneMenu value="#{color1.colour1}">
+					        <f:selectItems value="#{colorOptions.colorNames}"/>
+					      </h:selectOneMenu>
+					   </td>
+					   <td>Choose Color 2:<br/>
+					      <h:selectOneListbox value="#{color1.colour2}">
+					        <f:selectItems style = "margin-left:5px;" value="#{colorOptions.colorValues}"/>
+					      </h:selectOneListbox></td>
+					  <td>Choose Color 3:<br/>
+					      <h:selectOneRadio value="#{color1.colour3}">
+					        <f:selectItems value="#{colorOptions.colorMap}"/>
+					      </h:selectOneRadio></td>
+					   <td>Choose Color 4:<br/>
+					      <h:selectOneListbox value="#{color1.colour4}">
+					        <f:selectItems value="#{colorOptions.colorList}"
+					                       var="color" 
+					                       itemLabel="#{color.colorName}"
+					                       itemValue="#{color.colorValue}"/>
+					      </h:selectOneListbox></td>
+					</tr>
+					  
+					<tr>
+					  <td colspan="3" style="margin-left: 5px;"><h:commandButton action="#{color1.showColors}"
+					                                   value="Show Selected Colors"/></td>
+					</tr>
+					</table>
+				</h:form>
+			</fieldset>
+		</div>
+		<hr style="margin-top: 50px"/>
+		
+		<fieldset>
+			<legend>Search Engine example</legend>
+				<h:form>
+					Word: <h:inputText value="#{searchController.word}"/><br/>
+					Search Engine: <h:selectOneMenu value="#{searchController.searchEngineName}">
+					    <f:selectItems value="#{searchController.searchEngineNames}"/>
+					 </h:selectOneMenu><br/>
+					 <h:commandButton value="Search" action="#{searchController.doSearch}"/>
+				</h:form>
+			</fieldset>
+		
+	</h:body>
+</html>

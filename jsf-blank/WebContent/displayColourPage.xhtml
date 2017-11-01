@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<!--  When you make your own projects, copy and rename sample-file-with-form.xhtml
+      or sample-file-no-form.xhtml. Don't copy and rename THIS file, because
+      this file has too many extraneous things in it. -->
+<h:head>
+<title>Display Color</title>
+<link href="./css/styles.css" rel="stylesheet" type="text/css"/> 
+</h:head>
+	<h:body>
+		<h1 class="title">Display Colour</h1>
+		<div align="center" style="margin-top: 10px;">
+			<fieldset>
+			<legend>Colours</legend>
+				<h:messages globalOnly="true" />
+				  <p:dataTable var="color" value="#{color1.ids}">
+				    <p:column headerText="Color">
+				        <h:outputText value="#{color1.colour1}" />
+				        <h:outputText value="#{color1.colour2}" />
+				        <h:outputText value="#{color1.colour3}" />
+				        <h:outputText value="#{color1.colour4}" />
+				    </p:column>
+				 
+				    <p:column headerText="Value">
+				        <h:outputText value="#{color1.colour1}" />
+				        <h:outputText value="#{color1.colour2}" />
+				        <h:outputText value="#{color1.colour3}" />
+				        <h:outputText value="#{color1.colour4}" />
+				    </p:column>
+				 
+				</p:dataTable>
+				  <h:commandButton style="margin-top: 10px;" value="Go Back" 
+					                   action="#{color1.someActionControllerMethod}"/> 
+			</fieldset>
+			<hr style="margin-top: 50px"></hr>
+			<fielsdset>
+				<h2>Color 1: <span style="color: #{color1.colour1}">#{color1.colour1}</span></h2>
+				<h2>Color 2: <span style="color: #{color1.colour2}">#{color1.colour2}</span></h2>
+				<h2>Color 3: <span style="color: #{color1.colour3}">#{color1.colour3}</span></h2>
+				<h2>Color 4: <span style="color: #{color1.colour4}">#{color1.colour4}</span></h2>
+			</fielsdset>
+		</div>
+	</h:body>
+</html>
